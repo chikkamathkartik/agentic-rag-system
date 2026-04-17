@@ -1,0 +1,13 @@
+Deadlock is a condition in an operating system where two or more processes wait indefinitely for resources held by each other.
+
+Deadlock occurs due to four necessary conditions: mutual exclusion, hold and wait, no preemption, and circular wait.
+
+Mutual exclusion means only one process can use a resource at a time.
+
+Hold and wait means a process holding resources is waiting for additional resources.
+
+No preemption means resources cannot be forcibly taken away.
+
+Circular wait means processes form a circular chain waiting for each other.
+
+Deadlock can be prevented by breaking one of these conditions, such as using resource ordering or avoiding hold and wait.

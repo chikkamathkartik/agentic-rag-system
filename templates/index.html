@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Agentic RAG System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #020617;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        header h1 {
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #020617;
+            padding: 20px;
+            border-right: 1px solid #1e293b;
+        }
+
+        .main {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            margin-bottom: 10px;
+            background: #1e293b;
+            color: white;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #38bdf8;
+            color: black;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        .card {
+            background: #020617;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #1e293b;
+        }
+
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .history {
+            margin-top: 20px;
+        }
+
+        .file-list li {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Controlled Agentic RAG System</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <h3>Upload Documents</h3>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="files" multiple>
+                <button type="submit">Upload</button>
+            </form>
+
+            <h3>Documents</h3>
+            <ul class="file-list">
+                {% for f in files %}
+                <li>{{ f }}</li>
+                {% endfor %}
+            </ul>
+
+            <a href="/clear">
+                <button style="background:#ef4444;color:white;">Clear Chat</button>
+            </a>
+
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <h3>Ask a Question</h3>
+            <form method="POST">
+                <input type="text" name="query" placeholder="Type your question here...">
+                <button type="submit">Run Query</button>
+            </form>
+
+
+            {% if agent_output %}
+            <div class="card">
+                <h3>Agentic RAG Output</h3>
+
+                {% if agent_output["definition"] %}
+                <b>Definition</b>
+                <ul>
+                    {% for i in agent_output["definition"] %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if agent_output["cause"] or agent_output["condition"] %}
+                <b>Causes / Conditions</b>
+                <ul>
+                    {% for i in agent_output["cause"] + agent_output["condition"] %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if agent_output["prevention"] %}
+                <b>Prevention</b>
+                <ul>
+                    {% for i in agent_output["prevention"] %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="history">
+                <h3>History</h3>
+
+
+                {% for item in history %}
+                <div class="card">
+                    <b>Q:</b> {{ item.query }} <br><br>
+                    <b>A:</b> {{ item.answer }}
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
