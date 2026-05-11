@@ -18,9 +18,12 @@ Memory:
 {memory_context}
 
 Rules:
-- Give clear factual answer
-- Avoid repeating memory
-- Be concise (2–4 sentences)
+- Do NOT infer or assume anything
+- Do NOT use outside knowledge
+- ONLY use information explicitly present in the context
+- If the answer is not directly present → say "Insufficient information"
+
+Answer:
 """
 
     return call_llm(prompt)

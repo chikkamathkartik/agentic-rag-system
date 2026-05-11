@@ -4,12 +4,10 @@ from utils.llm import call_llm
 def generate_final_answer(query, memory):
 
     context = " ".join([m["text"] for m in memory])
-
     prompt = f"""
-You are an expert assistant.
+You are an expert assistant answering questions based ONLY on verified knowledge.
 
-Use the verified knowledge below to answer:
-
+Knowledge:
 {context}
 
 Question:
@@ -17,9 +15,13 @@ Question:
 
 Instructions:
 - Give a clear and detailed explanation
-- Include definition, explanation, and context
+- Structure the answer logically
+- Include:
+    1. Definition (if applicable)
+    2. Explanation
+    3. Key insights or important details
+- Do NOT hallucinate beyond the provided knowledge
 - Do NOT be overly short
-- Do NOT hallucinate beyond given knowledge
 
 Answer:
 """
