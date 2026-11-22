@@ -1,11 +1,29 @@
+import os
 import requests
-from sentence_transformers import SentenceTransformer
+
+_model = None
 
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+def get_model():
+    global _model
+    if _model is None:
+        from sentence_transformers import SentenceTransformer
+        _model = SentenceTransformer("all-MiniLM-L6-v2")
+    return _model
+
+
+# Backwards compatibility for existing imports
+class _LazyModelProxy:
+    def encode(self, *args, **kwargs):
+        return get_model().encode(*args, **kwargs)
+
+
+model = _LazyModelProxy()
+
 
 def get_embedding(text):
-    return model.encode(text)
+    return get_model().encode(text)
+
 
 def call_llm(prompt):
     try:
@@ -14,13 +32,13 @@ def call_llm(prompt):
             json={
                 "model": "llama3",
                 "prompt": prompt,
-                "stream": False
-            }
+                "stream": False,
+            },
+            timeout=30,
         )
 
         data = response.json()
 
-        #  handle failure properly
         if "response" not in data:
             print("LLM Raw Error:", data)
             return None

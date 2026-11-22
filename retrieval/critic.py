@@ -2,6 +2,8 @@ from utils.llm import call_llm
 
 
 def evaluate_retrieval(query, context):
+    if not context.strip():
+        return "BAD"
 
     prompt = f"""
 You are a strict retrieval evaluator.
@@ -27,20 +29,9 @@ Answer ONLY one word:
 GOOD / PARTIAL / BAD
 """
 
-    try:
-        response = call_llm(prompt)
-
-        if not response:
-            return "BAD"
-
-        response = response.strip().upper()
-
-        if "GOOD" in response:
-            return "GOOD"
-        elif "PARTIAL" in response:
-            return "PARTIAL"
-        else:
-            return "BAD"
-
-    except:
+    response = call_llm(prompt)
+    if not response:
         return "BAD"
+
+    verdict = response.strip().upper().rstrip(".!")
+    return verdict if verdict in {"GOOD", "PARTIAL", "BAD"} else "BAD"

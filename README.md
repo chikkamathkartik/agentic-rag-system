@@ -1,22 +1,21 @@
 # Controlled Agentic RAG System
 
-A production-ready Retrieval-Augmented Generation (RAG) system with built-in quality control, comprehensive evaluation, and detailed performance tracking.
+A research prototype for document-grounded question answering with a trust-aware answer/abstain policy and an extensible evaluation harness.
 
 ## ✨ Key Features
 
 ### Core Functionality
 - 📤 **Document Upload**: Support for PDF, TXT, DOCX formats
 - 🔍 **Intelligent Retrieval**: FAISS-based semantic search with query enhancement
-- 🤖 **Agentic Reasoning**: Multi-step reasoning with built-in verification
-- ✅ **Quality Control**: Retrieval critic validates context before generation
-- 🧠 **Memory Management**: Confidence-based knowledge storage
+- 🤖 **Agentic Reasoning**: Retrieval critic and context-grounded answer generation
+- ✅ **Trust Gate**: Combines dense relevance and critic verdict before generation
 
 ### Evaluation & Monitoring  
-- 📊 **Real-time Performance**: Execution time tracking (retrieval + generation)
-- 📈 **8 Comprehensive Plots**: Detailed visualization of metrics
-- 🎯 **Multiple Metrics**: Similarity, hallucination detection, response quality
-- 🌍 **OOD Testing**: Out-of-distribution query evaluation
-- 📋 **Detailed Reports**: CSV exports of all metrics
+- 📊 **Real-time Performance**: Execution time tracking (retrieval, critic, generation)
+- 📈 **Contemporary RAG Baselines**: Dense, BM25, Hybrid RRF, Cross-Encoder reranking, and gated ablations
+- 🎯 **Evaluation Metrics**: Claim-level faithfulness, hallucination rates, selective QA coverage/risk, and reference similarity
+- 🧪 **Robustness & Stress Testing**: Perturbation noise, distractor injection, and out-of-domain (OOD) tests
+- 📋 **Reproducible Artifacts**: Full manuscript revision (`REVISED_MANUSCRIPT.md`), point-by-point reviewer rebuttal (`RESPONSE_TO_REVIEWERS.md`), query-level CSVs, and blinded human-evaluation templates
 
 ### User Experience
 - 🎨 **Modern Web UI**: Clean, responsive Flask interface
@@ -57,37 +56,25 @@ Visit: `http://localhost:5000`
 
 ### 3. Evaluate System
 ```bash
-# Run comprehensive evaluation
-python evaluation/run_evaluation.py
+# Compare dense, BM25, hybrid, and trust-aware RAG
+python evaluation/run_revision_eval.py --limit 30 --seed 13
 
-# Generate plots
+# Generate plots from measured results
 python evaluation/plot.py
 ```
 
 ## 📊 Evaluation Metrics
 
-| Metric | Description | Target |
+| Metric | Description | Caveat |
 |--------|-------------|--------|
-| **Similarity Score** | How well answer matches ground truth (0-1) | > 0.65 |
-| **Hallucination Rate** | % of fabricated information (0-1) | < 10% |
-| **Execution Time** | Total time from query to answer | < 2s |
-| **Response Length** | Word count of responses | Varied |
-| **Refusal Rate** | % of uncertain answers | 5-15% |
-| **OOD Hallucination** | Hallucination on unknown topics | < 10% |
+| **Reference similarity** | Embedding similarity to the supplied answer | Not a correctness judgment |
+| **Answer-context similarity** | Embedding similarity proxy | Not a hallucination/faithfulness measure |
+| **Latency** | Retrieval, critic, generation, and total wall time | Report hardware and model versions |
+| **Refusal rate** | Fraction of queries with abstention | Interpret with answer quality/coverage |
 
 ## 📈 Generated Plots
 
-After running evaluation, you get:
-1. **Similarity Trend** - Performance across queries
-2. **Hallucination Comparison** - Safety metrics
-3. **Execution Time** - Speed breakdown (retrieval vs generation)
-4. **Metrics Comparison** - Side-by-side performance
-5. **Response Length** - Distribution analysis
-6. **Trade-off Analysis** - Similarity vs Hallucination
-7. **Per-Query Improvements** - Query-by-query gains
-8. **Performance Heatmap** - Summary overview
-
-All plots saved as high-quality 300 DPI PNG files.
+`evaluation/plot.py` generates descriptive quality, refusal, latency, and trust-index figures from measured rows in `evaluation/revision_results.csv`. These plots do not estimate hallucination, OOD robustness, calibration, or distributed scaling.
 
 ## 🎯 Use Cases
 
@@ -112,14 +99,22 @@ All plots saved as high-quality 300 DPI PNG files.
 ├── reasoning/
 │   └── generator.py          # Answer generation
 ├── evaluation/
-│   ├── run_evaluation.py     # Benchmark script with timing metrics
-│   ├── plot.py               # 8 comprehensive visualizations
-│   └── metrics.py
+│   ├── run_revision_eval.py  # Dense/BM25/hybrid/cross-encoder/trust-aware comparison
+│   ├── robustness_eval.py    # Typo noise, distractor, and OOD evaluations
+│   ├── ablation_study.py     # Hyperparameter grid sensitivity sweep
+│   ├── failure_analysis.py   # Five-class automated failure categorization
+│   ├── create_human_eval.py  # Blinded pairwise annotation sheets
+│   ├── plot.py               # Measured quality, latency, and faithfulness plots
+│   └── metrics.py            # Faithfulness, hallucination, and selective QA metrics
+├── tests/
+│   └── test_trust_policy.py  # 13 automated unit tests
 ├── templates/
 │   └── index.html            # Clean, modern web UI
 ├── dataset/                  # Documents and queries
-├── graphs/                   # Generated visualizations
-├── EVALUATION_GUIDE.md       # Detailed metrics documentation
+├── REVISED_MANUSCRIPT.md     # Full publication manuscript draft
+├── RESPONSE_TO_REVIEWERS.md  # Detailed point-by-point reviewer rebuttal
+├── EVALUATION_GUIDE.md       # Comprehensive evaluation reproduction guide
+├── MANUSCRIPT_REVISION.md    # Revision overview and protocol
 └── QUICK_START.md            # Quick reference guide
 ```
 
@@ -139,7 +134,7 @@ Edit `retrieval/retriever.py`:
 - Similarity threshold
 
 ### Evaluation Settings
-Edit `evaluation/run_evaluation.py`:
+Edit `evaluation/run_revision_eval.py`:
 - Number of queries to evaluate
 - OOD test queries
 - Similarity threshold for hallucination
@@ -161,17 +156,20 @@ Timing is:
 ## 📊 Evaluation Commands
 
 ```bash
-# Run full evaluation (30 queries)
-python evaluation/run_evaluation.py
+# Run a reproducible 30-query evaluation sample
+python evaluation/run_revision_eval.py --limit 30 --seed 13
+
+# Run the full 1,000-query dataset
+python evaluation/run_revision_eval.py --limit 1000 --seed 13
 
 # Generate visualization plots
 python evaluation/plot.py
 
-# View results
-head evaluation/results.csv
+# View results in a spreadsheet
+evaluation/revision_results.csv
 
-# Check execution times
-grep "time" evaluation/results.csv
+# Human comparison template
+python evaluation/create_human_eval.py --seed 13
 ```
 
 ## 🎨 Frontend Improvements
@@ -196,14 +194,10 @@ Recent updates include:
 
 ### Automated Evaluation
 ```bash
-python evaluation/run_evaluation.py
+python evaluation/run_revision_eval.py --limit 30 --seed 13
 ```
 
-Checks:
-- Baseline vs Agent performance
-- Hallucination detection
-- Response quality
-- Execution efficiency
+The evaluation harness records retrieval/generation outputs and latency for four RAG configurations. It does not complete the required human, faithfulness, OOD, robustness, or statistical studies; see `MANUSCRIPT_REVISION.md`.
 
 ## 📝 Files Modified in Latest Update
 
@@ -211,10 +205,10 @@ Checks:
 - ✅ `core/state.py` - Added timing attributes
 - ✅ `core/agent.py` - Added timing measurements
 - ✅ `app.py` - Capture and display execution time
-- ✅ `evaluation/run_evaluation.py` - Enhanced metrics with timing
-- ✅ `evaluation/plot.py` - 8 new comprehensive plots
-- ✅ `EVALUATION_GUIDE.md` - New detailed documentation
-- ✅ `QUICK_START.md` - New quick reference guide
+- `core/trust_policy.py` - Formal trust decision score and abstention gate
+- `evaluation/run_revision_eval.py` - Reproducible baseline comparison
+- `evaluation/create_human_eval.py` - Blinded pairwise annotation-sheet generator
+- `MANUSCRIPT_REVISION.md` - Novelty positioning, method, and outstanding studies
 
 ## 🚀 Next Steps
 
@@ -245,5 +239,5 @@ Contributions welcome! Please:
 ---
 
 **Last Updated**: May 2026
-**Status**: Production Ready
+**Status**: Research prototype; manuscript-level claims require the studies in `MANUSCRIPT_REVISION.md`.
 **Maintenance**: Active

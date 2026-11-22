@@ -18,22 +18,21 @@ class FAISSStore:
         self.index.add(vectors)
         self.texts.extend(chunks)
 
-    def search(self, query, top_k=3):
-
+    def search_with_scores(self, query, top_k=3):
         if len(self.texts) == 0:
             return []
 
-        top_k = min(top_k, len(self.texts)) 
+        top_k = min(top_k, len(self.texts))
 
         q_vec = np.array([get_embedding(query)]).astype("float32")
-        faiss.normalize_L2(q_vec) 
+        faiss.normalize_L2(q_vec)
 
         distances, indices = self.index.search(q_vec, top_k)
+        return [
+            (self.texts[index], float(score))
+            for index, score in zip(indices[0], distances[0])
+            if 0 <= index < len(self.texts)
+        ]
 
-        results = []
-
-        for i in indices[0]:
-            if 0 <= i < len(self.texts):
-                results.append(self.texts[i])
-
-        return results
+    def search(self, query, top_k=3):
+        return [text for text, _ in self.search_with_scores(query, top_k)]

@@ -1,31 +1,31 @@
 question,sim_baseline,sim_agent,hallucination_baseline,hallucination_agent,len_baseline,len_agent,refusal_agent,baseline_time,agent_total_time,agent_retrieval_time,agent_generation_time
-Do mitochondria play a role in remodelling lace plant leaves during programmed cell death?,0.6733637,-0.06403326,1,0,23,2,1,29.137215852737427,6.001096963882446,9.059906005859375e-06,3.046278715133667
-Landolt C and snellen e acuity: differences in strabismus amblyopia?,0.89090717,0.9084943,1,1,90,70,0,14.537019968032837,12.605119466781616,5.7220458984375e-06,9.414020538330078
-"Syncope during bathing in infants, a pediatric form of water-induced urticaria?",0.5895457,0.06779371,1,0,16,36,1,5.3526647090911865,10.947506189346313,3.337860107421875e-06,8.116096258163452
-Are the long-term results of the transanal pull-through equal to those of the transabdominal pull-through?,0.5087851,0.063375115,1,0,175,2,1,32.093220949172974,6.497339487075806,3.0994415283203125e-06,3.2619965076446533
-Can tailored interventions increase mammography use among HMO women?,0.6726608,0.6029469,1,1,20,21,0,5.646312952041626,7.807954788208008,2.6226043701171875e-06,4.782912969589233
-Double balloon enteroscopy: is it efficacious and safe in a community setting?,0.57003284,0.42731237,1,0,48,53,1,8.3849937915802,10.624962568283081,5.245208740234375e-06,7.520768165588379
-30-Day and 1-year mortality in emergency general surgery laparotomies: an area of concern and need for improvement?,-0.05203539,0.60515535,1,1,12,50,0,3.917107343673706,10.47263765335083,1.4066696166992188e-05,7.426416397094727
-Is adjustment for reporting heterogeneity necessary in sleep disorders?,0.5567944,0.5792444,1,0,112,27,1,12.980429649353027,8.253034114837646,1.049041748046875e-05,5.206177234649658
-Do mutations causing low HDL-C promote increased carotid intima-media thickness?,0.5980638,0.5318198,1,0,22,40,1,6.004722595214844,9.89028024673462,5.7220458984375e-06,6.815020561218262
-A short stay or 23-hour ward in a general and academic children's hospital: are they effective?,0.6345352,0.5353983,1,0,24,56,1,4.885363578796387,10.547763109207153,6.198883056640625e-06,7.391513824462891
-Did Chile's traffic law reform push police enforcement?,0.5285174,0.40884024,1,0,57,35,1,7.829321622848511,8.489505052566528,6.67572021484375e-06,5.507787466049194
-Therapeutic anticoagulation in the trauma patient: is it safe?,0.6811714,0.61626387,1,0,32,50,1,6.585642576217651,11.080119371414185,1.5020370483398438e-05,7.874546766281128
-Differentiation of nonalcoholic from alcoholic steatohepatitis: are routine laboratory markers useful?,0.54459465,0.3492216,1,0,222,38,1,28.08726167678833,9.774970293045044,5.9604644775390625e-06,6.67682409286499
-Prompting Primary Care Providers about Increased Patient Risk As a Result of Family History: Does It Work?,0.81914955,0.13282657,1,0,49,2,1,6.805033922195435,6.216509580612183,6.198883056640625e-06,3.144758939743042
-Do emergency ultrasound fellowship programs impact emergency medicine residents' ultrasound education?,0.70512164,0.647643,1,1,74,33,0,9.475708961486816,8.973263025283813,1.0967254638671875e-05,5.810837268829346
-Patient-Controlled Therapy of Breathlessness in Palliative Care: A New Therapeutic Concept for Opioid Administration?,0.77530926,0.47048214,1,1,92,94,0,11.522298812866211,15.00887131690979,6.4373016357421875e-06,11.818142652511597
-Is there still a need for living-related liver transplantation in children?,0.5145879,-0.075525,1,0,53,2,1,7.61360764503479,6.294259548187256,1.1682510375976562e-05,3.128429889678955
-Do patterns of knowledge and attitudes exist among unvaccinated seniors?,0.2836316,0.2836108,1,0,48,35,1,7.835361480712891,9.041687965393066,9.5367431640625e-06,5.9319822788238525
-Is there a model to teach and practice retroperitoneoscopic nephrectomy?,0.5120391,0.50923467,1,0,15,30,1,5.340234994888306,9.082829475402832,1.1444091796875e-05,6.051242351531982
-Cardiovascular risk in a rural adult West African population: is resting heart rate also relevant?,0.78284967,0.63286906,1,1,58,34,0,8.648266315460205,8.926086187362671,1.4781951904296875e-05,5.851280212402344
-Israeli hospital preparedness for terrorism-related multiple casualty incidents: can the surge capacity and injury severity distribution be better predicted?,0.67356324,0.5037469,1,0,139,83,1,15.165833711624146,13.218263626098633,1.239776611328125e-05,10.201229095458984
-Acute respiratory distress syndrome in children with malignancy--can we predict outcome?,0.6202135,0.6578835,1,0,26,31,1,5.811723232269287,8.6404128074646,6.4373016357421875e-06,5.602868318557739
-Secondhand smoke risk in infants discharged from an NICU: potential for significant health disparities?,0.43640417,0.49159178,1,1,32,113,0,6.928729057312012,16.271666288375854,6.4373016357421875e-06,13.111176252365112
-Do nomograms designed to predict biochemical recurrence (BCR) do a better job of predicting more clinically relevant prostate cancer outcomes than BCR?,0.71596205,0.6708108,1,0,28,35,1,5.436833381652832,9.0326669216156,1.33514404296875e-05,6.021151065826416
-Are reports of mechanical dysfunction in chronic oro-facial pain related to somatisation?,0.77559435,0.75574005,1,1,21,47,0,5.711625814437866,10.510425567626953,1.1205673217773438e-05,7.381570339202881
-Amblyopia: is visual loss permanent?,0.7750001,0.5484661,1,0,94,39,1,12.67061734199524,10.257977485656738,1.1920928955078125e-05,7.068757057189941
-Implementation of epidural analgesia for labor: is the standard of effective analgesia reachable in all women?,0.7567194,0.0529769,1,0,26,2,1,5.301713228225708,6.3568503856658936,5.4836273193359375e-06,3.2243030071258545
-Does HER2 immunoreactivity provide prognostic information in locally advanced urothelial carcinoma patients receiving adjuvant M-VEC chemotherapy?,0.95399344,0.9199625,1,0,22,37,1,5.432462692260742,10.052039623260498,1.6450881958007812e-05,6.944359540939331
-Is halofantrine ototoxic?,0.7957068,0.773252,1,1,11,40,0,4.844280481338501,10.22180438041687,5.7220458984375e-06,7.2103846073150635
-Visceral adipose tissue area measurement at a single level: can it represent visceral adipose tissue volume?,0.60104907,0.4402157,1,0,29,53,1,6.143047094345093,10.381520748138428,9.775161743164062e-06,7.405675411224365
+Do mitochondria play a role in remodelling lace plant leaves during programmed cell death?,0.68779004,-0.064033285,1,0,56,2,1,24.248910903930664,7.553065538406372,2.7418136596679688e-05,3.8130791187286377
+Landolt C and snellen e acuity: differences in strabismus amblyopia?,0.877802,0.8342591,1,0,92,50,1,19.491377353668213,14.709283113479614,2.1696090698242188e-05,10.991529941558838
+"Syncope during bathing in infants, a pediatric form of water-induced urticaria?",0.6401383,0.061132357,1,1,21,2,0,6.786675453186035,7.875716924667358,1.3113021850585938e-05,4.164301156997681
+Are the long-term results of the transanal pull-through equal to those of the transabdominal pull-through?,0.7245909,0.063375145,1,0,64,2,1,13.554652690887451,7.630998611450195,1.4543533325195312e-05,3.943817377090454
+Can tailored interventions increase mammography use among HMO women?,0.6512741,0.596964,1,1,56,33,0,11.003304958343506,11.4813392162323,2.2172927856445312e-05,7.8332741260528564
+Double balloon enteroscopy: is it efficacious and safe in a community setting?,0.5818028,0.50131834,1,0,20,52,1,6.8711042404174805,14.861968755722046,1.811981201171875e-05,11.390058279037476
+30-Day and 1-year mortality in emergency general surgery laparotomies: an area of concern and need for improvement?,0.6735296,0.59855604,1,1,28,41,0,8.190350532531738,13.246965885162354,1.430511474609375e-05,9.398241519927979
+Is adjustment for reporting heterogeneity necessary in sleep disorders?,0.5465982,0.53605556,1,0,156,47,1,24.412862062454224,12.861039876937866,1.430511474609375e-05,9.40332841873169
+Do mutations causing low HDL-C promote increased carotid intima-media thickness?,0.5737496,0.5379827,1,0,55,40,1,10.593773365020752,14.143254280090332,1.811981201171875e-05,10.337973356246948
+A short stay or 23-hour ward in a general and academic children's hospital: are they effective?,0.687717,0.6458108,1,0,54,41,1,10.11708378791809,12.72517442703247,8.20159912109375e-05,8.992664337158203
+Did Chile's traffic law reform push police enforcement?,0.4819907,0.05191425,1,0,66,2,1,11.055956363677979,7.531896352767944,1.239776611328125e-05,3.7649648189544678
+Therapeutic anticoagulation in the trauma patient: is it safe?,0.7567417,0.0045522004,1,0,142,2,1,24.709783792495728,8.029379606246948,2.3603439331054688e-05,4.251126050949097
+Differentiation of nonalcoholic from alcoholic steatohepatitis: are routine laboratory markers useful?,0.50672644,0.32635543,1,0,63,57,1,14.84835147857666,15.265743732452393,2.193450927734375e-05,11.734589576721191
+Prompting Primary Care Providers about Increased Patient Risk As a Result of Family History: Does It Work?,0.8066733,0.6825114,1,1,70,57,0,12.212640762329102,15.012555599212646,1.7642974853515625e-05,11.474719762802124
+Do emergency ultrasound fellowship programs impact emergency medicine residents' ultrasound education?,0.6875949,0.66998905,1,1,23,42,0,7.032063722610474,13.070724725723267,1.4543533325195312e-05,9.485401153564453
+Patient-Controlled Therapy of Breathlessness in Palliative Care: A New Therapeutic Concept for Opioid Administration?,0.61839485,0.6780498,1,1,80,56,0,16.29466414451599,17.27499294281006,1.3828277587890625e-05,13.738203763961792
+Is there still a need for living-related liver transplantation in children?,0.6625607,0.54609394,1,0,58,22,1,14.76062560081482,11.958189725875854,1.8358230590820312e-05,8.243023157119751
+Do patterns of knowledge and attitudes exist among unvaccinated seniors?,0.3224885,0.2349362,1,0,38,35,1,11.779480218887329,16.781901597976685,2.5033950805664062e-05,11.864152193069458
+Is there a model to teach and practice retroperitoneoscopic nephrectomy?,0.43759468,0.50038433,1,1,65,36,0,21.409093379974365,18.026910543441772,0.0002484321594238281,13.503552198410034
+Cardiovascular risk in a rural adult West African population: is resting heart rate also relevant?,0.6412407,0.5251713,1,1,25,63,0,10.253502607345581,21.701197862625122,1.4781951904296875e-05,17.12252187728882
+Israeli hospital preparedness for terrorism-related multiple casualty incidents: can the surge capacity and injury severity distribution be better predicted?,0.6562353,0.6209099,1,0,130,69,1,29.12890625,19.76494550704956,2.8133392333984375e-05,15.796615362167358
+Acute respiratory distress syndrome in children with malignancy--can we predict outcome?,0.64880675,0.030507538,1,0,25,2,1,8.644188165664673,8.246557712554932,3.4809112548828125e-05,4.157694339752197
+Secondhand smoke risk in infants discharged from an NICU: potential for significant health disparities?,0.4778489,0.4808113,1,0,90,68,1,25.159403324127197,20.961455821990967,5.9604644775390625e-06,17.169057369232178
+Do nomograms designed to predict biochemical recurrence (BCR) do a better job of predicting more clinically relevant prostate cancer outcomes than BCR?,0.7203228,0.7012936,1,1,56,31,0,15.135623455047607,14.109780073165894,1.0728836059570312e-05,10.117329120635986
+Are reports of mechanical dysfunction in chronic oro-facial pain related to somatisation?,0.8064785,0.7621456,1,0,58,40,1,15.730191230773926,14.755231618881226,2.0503997802734375e-05,11.035029649734497
+Amblyopia: is visual loss permanent?,0.6875099,0.5125287,1,0,62,23,1,15.917527437210083,11.898624658584595,3.886222839355469e-05,8.008836030960083
+Implementation of epidural analgesia for labor: is the standard of effective analgesia reachable in all women?,0.6970794,0.055026807,1,0,60,2,1,14.084601879119873,7.895773410797119,1.9550323486328125e-05,4.0471718311309814
+Does HER2 immunoreactivity provide prognostic information in locally advanced urothelial carcinoma patients receiving adjuvant M-VEC chemotherapy?,0.9268317,0.89965874,1,1,23,28,0,8.299337387084961,12.779306173324585,2.3603439331054688e-05,9.173648834228516
+Is halofantrine ototoxic?,0.8064903,0.76513314,1,0,12,35,1,6.8143720626831055,14.58185625076294,2.193450927734375e-05,10.750291347503662
+Visceral adipose tissue area measurement at a single level: can it represent visceral adipose tissue volume?,0.42127964,0.4595735,1,1,82,63,0,16.24819254875183,16.722496032714844,1.8596649169921875e-05,12.887995719909668

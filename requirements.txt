@@ -1,3 +1,8 @@
 flask
 numpy
 faiss-cpu
+requests
+sentence-transformers
+scikit-learn
+pandas
+matplotlib

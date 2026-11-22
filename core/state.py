@@ -19,7 +19,12 @@ class State:
         self.end_time = None
         self.execution_time = None
         self.retrieval_time = None
+        self.critic_time = None
         self.generation_time = None
+        self.retrieval_verdict = None
+        self.retrieval_relevance = 0.0
+        self.trust_score = 0.0
+        self.abstained = False
         
     def get_execution_time(self):
         """Get total execution time in seconds"""

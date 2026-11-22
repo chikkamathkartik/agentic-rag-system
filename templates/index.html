@@ -62,10 +62,17 @@
             font-size: 18px;
         }
 
-        .card p {
-            line-height: 1.6;
+        .card p,
+        .answer-list {
+            line-height: 1.8;
             color: #e2e8f0;
             margin: 0;
+            padding-left: 20px;
+        }
+
+        .answer-list li {
+            margin-bottom: 10px;
+            list-style-type: disc;
         }
 
         .timing-info {
@@ -161,7 +168,7 @@
 <body>
 
     <header>
-        <h2>🤖 Controlled Agentic RAG System</h2>
+        <h2> Controlled Agentic RAG System</h2>
     </header>
 
     <div class="container">
@@ -170,7 +177,7 @@
         <div class="sidebar">
 
             <div>
-                <h3>📤 Upload Documents</h3>
+                <h3> Upload Documents</h3>
 
                 <form method="POST" enctype="multipart/form-data">
                     <input type="file" name="files" multiple>
@@ -179,7 +186,7 @@
             </div>
 
             <div>
-                <h3>📄 Documents</h3>
+                <h3> Documents</h3>
                 <ul class="file-list">
                     {% for f in files %}
                     <li>{{ f }}</li>
@@ -189,7 +196,7 @@
 
             <div>
                 <a href="/clear_docs" style="text-decoration: none;">
-                    <button class="danger">🗑️ Clear Documents</button>
+                    <button class="danger"> Clear Documents</button>
                 </a>
             </div>
 
@@ -199,18 +206,22 @@
         <div class="main">
 
             <div class="query-section">
-                <h3>❓ Ask a Question</h3>
+                <h3> Ask a Question</h3>
 
                 <form method="POST">
                     <input type="text" name="query" placeholder="Enter your question..." required>
-                    <button type="submit">🔍 Search</button>
+                    <button type="submit"> Search</button>
                 </form>
             </div>
 
-            {% if final_answer %}
+            {% if answer_points %}
             <div class="card">
                 <h3>✨ Answer</h3>
-                <p>{{ final_answer }}</p>
+                <ul class="answer-list">
+                    {% for point in answer_points %}
+                    <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
                 {% if execution_time %}
                 <div class="timing-info">
                     ⏱️ Execution Time: {{ execution_time|round(2) }} seconds

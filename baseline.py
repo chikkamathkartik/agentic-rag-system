@@ -4,7 +4,7 @@ from utils.llm import call_llm
 
 def baseline_rag(query):
     docs = retrieve(query)
-    context = " ".join(docs)
+    context = "\n".join(docs)
 
     prompt = f"""
 Answer the question using the context.

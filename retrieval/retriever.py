@@ -1,12 +1,10 @@
 from retrieval.store import faiss_store
 
 
-def retrieve(query, top_k=5):
-
+def retrieve_scored(query, top_k=5):
     enhanced_query = query + " causes risk factors reasons"
-    results = faiss_store.search(enhanced_query, top_k=top_k)
+    return faiss_store.search_with_scores(enhanced_query, top_k=top_k)
 
-    if not results:
-        return ""
 
-    return " ".join(results)
+def retrieve(query, top_k=5):
+    return [text for text, _ in retrieve_scored(query, top_k=top_k)]

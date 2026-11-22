@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import os
+import re
 import shutil
 
 from core.agent import run_agent
@@ -10,6 +11,22 @@ from retrieval.store import faiss_store
 from retrieval.store import faiss_store, load_dataset_into_faiss
 
 app = Flask(__name__)
+
+
+def answer_to_points(text):
+    if not text:
+        return []
+
+    # Split by sentence-ending punctuation or line breaks.
+    candidates = re.split(r'(?<=[.?!])\s+|\n+', text.strip())
+    points = []
+    for candidate in candidates:
+        item = candidate.strip()
+        if not item:
+            continue
+        points.append(item)
+
+    return points if len(points) > 1 else [text.strip()]
 
 # ---------------- CONFIG ----------------
 UPLOAD_FOLDER = "uploads"
@@ -73,9 +90,12 @@ def index():
             print("FINAL ANSWER:", final_answer)
             print(f"EXECUTION TIME: {execution_time:.2f}s")
 
+    answer_points = answer_to_points(final_answer) if final_answer else []
+
     return render_template(
         "index.html",
         final_answer=final_answer,
+        answer_points=answer_points,
         execution_time=execution_time,
         files=uploaded_files
     )
